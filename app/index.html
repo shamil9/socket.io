@@ -5,13 +5,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
     <style>
         #messages {
-            list-style-type: none;
             margin: 0;
             height: 450px;
             padding: 0;
+            display: block;
         }
 
-            #messages li {
+            #messages p {
                 border: 1px solid #eee;
                 border-radius: 5px;
                 padding: 5px 10px;
@@ -29,7 +29,7 @@
     <div class="container">
         <div class="row">
 
-            <ul id="messages"></ul>
+            <span id="messages"></span>
             <form action="">
                 <div class="ten columns">
                     <input class="u-full-width" type="text" id="m" autocomplete="off" />
@@ -52,7 +52,7 @@
             return false;
         });
         socket.on('chat message', function (msg, user) {
-            $('#messages').append($('<span>').text(user)).append($('<li>').text(msg));
+            $('#messages').append($('<span>').text(user)).append($('<p>').text(msg));
         });
     </script>
 </body>
